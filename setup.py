@@ -9,5 +9,6 @@ setup(
     license='MIT Licence',
     author='Stephen Neal',
     author_email='stephen@stephenneal.net',
-    description='Helper utility functions for logging output, timing processes and counting iterations.'
+    description='Added timer functions for timer decorations and active timers.',
+    long_description='Helper utility functions for logging output, timing processes and counting iterations.'
 )

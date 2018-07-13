@@ -22,3 +22,41 @@ class Timer:
         else:
             self.elapsed_str = str('min: ' + str(self.elapsed_float/60))
         return self.elapsed_str
+
+
+class ActiveTimer:
+    def __init__(self, function='Function'):
+        self.start = time.time()
+        try:
+            self.function = function.__name__
+        except AttributeError:
+            self.function = function
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        end = time.time()
+        runtime = end - self.start
+        msg = '{func} took {time} seconds to complete\n\n'
+        print(msg.format(func=self.function,time=runtime))
+
+
+def functimer(func):
+    """
+    A timer decorator
+    """
+
+    def function_timer(*args, **kwargs):
+        """
+        A nested function for timing other functions
+        """
+        start = time.time()
+        value = func(*args, **kwargs)
+        end = time.time()
+        runtime = end - start
+        msg = "{func} took {time} seconds to complete\n"
+        print(msg.format(func=func.__name__, time=runtime))
+        return value
+
+    return function_timer

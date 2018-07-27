@@ -8,7 +8,7 @@ class Timer:
         self.elapsed_float = None
 
     def __str__(self):
-        return str(self.elapsed_str)
+        return str(self.end)
 
     def __float__(self):
         return float(self.elapsed_float)
@@ -38,8 +38,8 @@ class ActiveTimer:
     def __exit__(self, exc_type, exc_val, exc_tb):
         end = time.time()
         runtime = end - self.start
-        msg = '{func} took {time} seconds to complete\n\n'
-        print(msg.format(func=self.function,time=runtime))
+        msg = '{func} took {time} seconds to complete'
+        print(msg.format(func=self.function, time=runtime))
 
 
 def functimer(func):
@@ -55,7 +55,7 @@ def functimer(func):
         value = func(*args, **kwargs)
         end = time.time()
         runtime = end - start
-        msg = "{func} took {time} seconds to complete\n"
+        msg = "{func} took {time} seconds to complete"
         print(msg.format(func=func.__name__, time=runtime))
         return value
 

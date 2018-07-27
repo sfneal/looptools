@@ -38,7 +38,7 @@ class ActiveTimer:
     def __exit__(self, exc_type, exc_val, exc_tb):
         end = time.time()
         runtime = end - self.start
-        msg = '{func} took {time} seconds to complete'
+        msg = '{func:20} {time:20} seconds to complete'
         print(msg.format(func=self.function, time=runtime))
 
 
@@ -55,7 +55,7 @@ def functimer(func):
         value = func(*args, **kwargs)
         end = time.time()
         runtime = end - start
-        msg = "{func} took {time} seconds to complete"
+        msg = '{func:15} --> {time}'
         print(msg.format(func=func.__name__, time=runtime))
         return value
 

@@ -5,7 +5,7 @@ import logging
 
 
 class LogOutput:
-    def __init__(self, save_directory, name):
+    def __init__(self, save_directory, name, enable_printing=True):
         """
         Save logged output to a text file
         :param save_directory: Directory to save log files to
@@ -14,9 +14,11 @@ class LogOutput:
         self.filename = str(save_directory) + '/_logs/' + str(datetime.now().strftime("%Y-%m-%d")) + '.txt'
         self.name = name
         self.log_file = self.setup_custom_logger()
+        self.enable_printing = enable_printing
 
     def logger(self, msg):
-        print(str('\n' + msg))
+        if self.enable_printing:
+            print(str('\n' + msg))
         self.log_file.info(msg)
 
     def setup_custom_logger(self):

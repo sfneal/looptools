@@ -2,7 +2,8 @@ import time
 
 
 class Timer:
-    def __init__(self):
+    def __init__(self, msg=None):
+        self.msg = msg
         self.start = time.time()
         self.elapsed_str = None
         self.elapsed_float = None
@@ -17,7 +18,10 @@ class Timer:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        print(self.end)
+        if self.msg:
+            print(self.msg, self.end)
+        else:
+            print(self.end)
 
     @property
     def end(self):

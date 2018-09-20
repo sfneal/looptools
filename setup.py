@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='looptools',
-    version='1.0.q',
+    version='1.0.1',
     packages=find_packages(),
     install_requires=[],
     url='https://github.com/mrstephenneal/looptools',

@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: looptools
+Version: 1.0.3
+Summary: Lightweight Python help utility.
+Home-page: https://github.com/mrstephenneal/looptools
+Author: Stephen Neal
+Author-email: stephen@stephenneal.net
+License: MIT Licence
+Description: Helper utility functions for logging output, timing processes and counting iterations.
+Platform: UNKNOWN

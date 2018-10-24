@@ -28,9 +28,9 @@ class Timer:
         end = time.time()
         self.elapsed_float = end - self.start
         if self.elapsed_float < 60:
-            self.elapsed_str = str('sec: ' + str(self.elapsed_float))
+            self.elapsed_str = str('sec: ' + str('{:f}'.format(self.elapsed_float)))
         else:
-            self.elapsed_str = str('min: ' + str(self.elapsed_float/60))
+            self.elapsed_str = str('min: ' + str('{:f}'.format(self.elapsed_float / 60)))
         return self.elapsed_str
 
     @staticmethod
@@ -43,7 +43,11 @@ class Timer:
             value = func(*args, **kwargs)
             end = time.time()
             runtime = end - start
-            msg = '{func:15} --> {time}'
+            if runtime < 60:
+                runtime = str('sec: ' + str('{:f}'.format(runtime)))
+            else:
+                runtime = str('min: ' + str('{:f}'.format(runtime / 60)))
+            msg = '{func:30} --> {time}'
             print(msg.format(func=func.__name__, time=runtime))
             return value
 

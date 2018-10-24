@@ -33,22 +33,18 @@ class Timer:
             self.elapsed_str = str('min: ' + str(self.elapsed_float/60))
         return self.elapsed_str
 
+    @staticmethod
+    def decorator(func):
+        """A function timer decorator."""
 
-def functimer(func):
-    """
-    A timer decorator
-    """
+        def function_timer(*args, **kwargs):
+            """A nested function for timing other functions."""
+            start = time.time()
+            value = func(*args, **kwargs)
+            end = time.time()
+            runtime = end - start
+            msg = '{func:15} --> {time}'
+            print(msg.format(func=func.__name__, time=runtime))
+            return value
 
-    def function_timer(*args, **kwargs):
-        """
-        A nested function for timing other functions
-        """
-        start = time.time()
-        value = func(*args, **kwargs)
-        end = time.time()
-        runtime = end - start
-        msg = '{func:15} --> {time}'
-        print(msg.format(func=func.__name__, time=runtime))
-        return value
-
-    return function_timer
+        return function_timer

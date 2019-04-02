@@ -39,16 +39,22 @@ class Timer:
 
         def function_timer(*args, **kwargs):
             """A nested function for timing other functions."""
+            # Capture start time
             start = time.time()
+
+            # Execute function with arguments
             value = func(*args, **kwargs)
+
+            # Capture end time
             end = time.time()
+
+            # Calculate run time
             runtime = end - start
             if runtime < 60:
                 runtime = str('sec: ' + str('{:f}'.format(runtime)))
             else:
                 runtime = str('min: ' + str('{:f}'.format(runtime / 60)))
-            msg = '{func:30} --> {time}'
-            print(msg.format(func=func.__name__, time=runtime))
+            print('{func:50} --> {time}'.format(func=func.__qualname__, time=runtime))
             return value
 
         return function_timer

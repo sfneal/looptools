@@ -1,6 +1,21 @@
 import time
+from decimal import Decimal
 
 _TIMES = []
+
+
+def human_time_round(exact, decimals=2):
+    """Trim a float to a certain number of decimal places."""
+    return round(Decimal(exact), decimals)
+
+
+def human_time(runtime):
+    if runtime < 1:
+        return str('mms: ' + str('{:f}'.format(human_time_round(runtime * 1000))))
+    elif runtime < 60:
+        return str('sec: ' + str('{:f}'.format(human_time_round(runtime))))
+    else:
+        return str('min: ' + str('{:f}'.format(human_time_round(runtime / 60))))
 
 
 class Timer:
@@ -51,11 +66,7 @@ class Timer:
             end = time.time()
 
             # Calculate run time
-            runtime = end - start
-            if runtime < 60:
-                runtime = str('sec: ' + str('{:f}'.format(runtime)))
-            else:
-                runtime = str('min: ' + str('{:f}'.format(runtime / 60)))
+            runtime = human_time(end - start)
             print('{func:50} --> {time}'.format(func=func.__qualname__, time=runtime))
             _TIMES.append((func.__qualname__, runtime))
             return value
@@ -78,11 +89,7 @@ class Timer:
             end = time.time()
 
             # Calculate run time
-            runtime = end - start
-            if runtime < 60:
-                runtime = str('sec: ' + str('{:f}'.format(runtime)))
-            else:
-                runtime = str('min: ' + str('{:f}'.format(runtime / 60)))
+            runtime = human_time(end - start)
             _TIMES.append((func.__qualname__, runtime))
             return value
 

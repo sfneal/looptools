@@ -1,7 +1,12 @@
-import time
+from time import time
 from decimal import Decimal
 
 _TIMES = []
+
+
+def now():
+    """Capture the current time."""
+    return time()
 
 
 def human_time_round(exact, decimals=2):
@@ -21,7 +26,7 @@ def human_time(runtime):
 class Timer:
     def __init__(self, msg=None):
         self.msg = msg
-        self.start = time.time()
+        self.start = now()
         self.elapsed_str = None
         self.elapsed_float = None
 
@@ -42,13 +47,8 @@ class Timer:
 
     @property
     def end(self):
-        end = time.time()
-        self.elapsed_float = end - self.start
-        if self.elapsed_float < 60:
-            self.elapsed_str = str('sec: ' + str('{:f}'.format(self.elapsed_float)))
-        else:
-            self.elapsed_str = str('min: ' + str('{:f}'.format(self.elapsed_float / 60)))
-        return self.elapsed_str
+        # Calculate run time 
+        return human_time(now() - self.start)
 
     @staticmethod
     def decorator(func):
@@ -57,16 +57,13 @@ class Timer:
         def function_timer(*args, **kwargs):
             """A nested function for timing other functions."""
             # Capture start time
-            start = time.time()
+            start = now()
 
             # Execute function with arguments
             value = func(*args, **kwargs)
 
-            # Capture end time
-            end = time.time()
-
             # Calculate run time
-            runtime = human_time(end - start)
+            runtime = human_time(now() - start)
             print('{func:50} --> {time}'.format(func=func.__qualname__, time=runtime))
             _TIMES.append((func.__qualname__, runtime))
             return value
@@ -80,16 +77,13 @@ class Timer:
         def function_timer(*args, **kwargs):
             """A nested function for timing other functions."""
             # Capture start time
-            start = time.time()
+            start = now()
 
             # Execute function with arguments
             value = func(*args, **kwargs)
 
-            # Capture end time
-            end = time.time()
-
             # Calculate run time
-            runtime = human_time(end - start)
+            runtime = human_time(now() - start)
             _TIMES.append((func.__qualname__, runtime))
             return value
 
@@ -101,7 +95,7 @@ class Timer:
 
     @staticmethod
     def print_times(class_name=None):
-        for index, ft in enumerate(sorted([(func, time) for func, time in Timer().times
+        for index, ft in enumerate(sorted([(func, t) for func, t in Timer().times
                                            if class_name and func.startswith(class_name)],
                                           key=lambda e: e[1])):
             func, t = ft

@@ -3,7 +3,7 @@ import re
 from setuptools import setup, find_packages
 
 
-def get_version(source=os.path.dirname(__file__)):
+def get_version(source):
     """
     Retrieve the version of a python distribution.
 
@@ -12,7 +12,7 @@ def get_version(source=os.path.dirname(__file__)):
     :param source: Path to project root
     :return: Version string
     """
-    version_str_lines = open(os.path.join(source, os.path.basename(source), '_version.py'), "rt").read()
+    version_str_lines = open(os.path.join(source, '_version.py'), "rt").read()
     version_str_regex = r"^__version__ = ['\"]([^'\"]*)['\"]"
     mo = re.search(version_str_regex, version_str_lines, re.M)
     if mo:
@@ -23,7 +23,7 @@ def get_version(source=os.path.dirname(__file__)):
 
 setup(
     name='looptools',
-    version=get_version(),
+    version=get_version('looptools'),
     packages=find_packages(),
     install_requires=[],
     url='https://github.com/mrstephenneal/looptools',

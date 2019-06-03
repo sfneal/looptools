@@ -1,6 +1,7 @@
 from time import time
 from decimal import Decimal
 
+
 _TIMES = []
 
 
@@ -9,23 +10,26 @@ def now():
     return time()
 
 
-def human_time_round(exact, decimals=2):
-    """Trim a float to a certain number of decimal places."""
+def rounder(exact, decimals=2):
+    """Round a float to a certain number of decimal places."""
     return round(Decimal(exact), decimals)
 
 
-def human_time(runtime):
+def human_time(runtime, decimals=2):
+    """Display runtime in a human friendly format."""
     if runtime < 1:
-        return str('mms: ' + str('{:f}'.format(human_time_round(runtime * 1000))))
+        return str('mms: ' + str('{:f}'.format(rounder(runtime * 1000, decimals))))
     elif runtime < 60:
-        return str('sec: ' + str('{:f}'.format(human_time_round(runtime))))
+        return str('sec: ' + str('{:f}'.format(rounder(runtime, decimals))))
     else:
-        return str('min: ' + str('{:f}'.format(human_time_round(runtime / 60))))
+        return str('min: ' + str('{:f}'.format(rounder(runtime / 60, decimals))))
 
 
 class Timer:
-    def __init__(self, msg=None):
+    def __init__(self, msg=None, decimal_places=2):
         self.msg = msg
+        self._decimal_places = decimal_places
+
         self.start = now()
         self.elapsed_str = None
         self.elapsed_float = None
@@ -47,8 +51,8 @@ class Timer:
 
     @property
     def end(self):
-        # Calculate run time 
-        return human_time(now() - self.start)
+        # Calculate run time
+        return human_time(now() - self.start, self._decimal_places)
 
     @staticmethod
     def decorator(func):

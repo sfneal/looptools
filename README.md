@@ -1,6 +1,6 @@
 # Loop Tools
 
-[![GuardRails badge](https://badges.production.guardrails.io/mrstephenneal/looptools.svg)](https://www.guardrails.io)
+[![GuardRails badge](https://badges.production.guardrails.io/sfneal/looptools.svg)](https://www.guardrails.io)
 
 looptools is a Python package with helper utility classes for logging output, timing processes and counting iterations.
 

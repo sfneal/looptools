@@ -1,10 +1,13 @@
 # Loop Tools
 
-[![GuardRails badge](https://badges.production.guardrails.io/sfneal/looptools.svg)](https://www.guardrails.io)
+[![Build Status](https://travis-ci.com/sfneal/looptools.svg?branch=master)](https://travis-ci.com/sfneal/looptools)
+[![PyPi version](https://img.shields.io/pypi/v/looptools)](https://pypi.org/project/looptools)
+[![PyPi downloads per month](https://img.shields.io/pypi/dm/looptools)](https://pypi.org/project/looptools)
+[![PyPi license](https://img.shields.io/pypi/l/looptools)](https://pypi.org/project/looptools)
 
 looptools is a Python package with helper utility classes for logging output, timing processes and counting iterations.
 
-_Almost every Python project involves some form of logging, timing and counting.  Loop Tools provides a lightweight package for handling these needs without rewriting similar snippets for multiple projects._
+Almost every Python project involves some form of logging, timing and counting.  Loop Tools provides a lightweight package for handling these needs without rewriting similar snippets for multiple projects.
 
 
 ### How it works

@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/sfneal/looptools.svg?branch=master)](https://travis-ci.com/sfneal/looptools)
 [![PyPi version](https://img.shields.io/pypi/v/looptools)](https://pypi.org/project/looptools)
+[![PyPi Python support](https://img.shields.io/pypi/pyversions/looptools)](https://pypi.org/project/looptools)
 [![PyPi downloads per month](https://img.shields.io/pypi/dm/looptools)](https://pypi.org/project/looptools)
 [![PyPi license](https://img.shields.io/pypi/l/looptools)](https://pypi.org/project/looptools)
 

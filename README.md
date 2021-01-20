@@ -58,6 +58,10 @@ Outlined below are basic uses of the four main classes of the Loop Tools python 
 * LogOutput - Save logged output to a text file
 * Timer - Get time elapsed during a process
 
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://github.com/sfneal/psdconvert/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
@@ -68,7 +72,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Stephen Neal** - *Initial work* - [StephenNeal](https://github.com/sfneal)
+* **Stephen Neal** - *Initial work* - [Stephen Neal](https://github.com/sfneal)
 
 ## License
 

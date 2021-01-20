@@ -22,12 +22,11 @@ class LogOutput:
         self.log_file.info(msg)
 
     def setup_custom_logger(self):
-        formatter = logging.Formatter(fmt='%(asctime)s %(message)s',
-                                      datefmt='%m/%d/%Y %I:%M:%S %p: ')
+        formatter = logging.Formatter(fmt='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p: ')
         if os.path.exists(self.filename):
-            append_write = 'a'  # append if already exists
+            append_write = 'a'    # append if already exists
         else:
-            append_write = 'w'  # make a new file if not
+            append_write = 'w'    # make a new file if not
         handler = logging.FileHandler(self.filename, mode=append_write)
         handler.setFormatter(formatter)
         screen_handler = logging.StreamHandler(stream=sys.stdout)

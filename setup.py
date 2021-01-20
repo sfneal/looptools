@@ -21,15 +21,13 @@ def get_version(source):
         raise RuntimeError("Unable to find version string in %s." % os.path.join(source, os.path.basename(source)))
 
 
-setup(
-    name='looptools',
-    version=get_version('looptools'),
-    packages=find_packages(),
-    install_requires=[],
-    url='https://github.com/sfneal/looptools',
-    license='MIT Licence',
-    author='Stephen Neal',
-    author_email='stephen@stephenneal.net',
-    description='Lightweight Python help utility.',
-    long_description='Helper utility functions for logging output, timing processes and counting iterations.'
-)
+setup(name='looptools',
+      version=get_version('looptools'),
+      packages=find_packages(),
+      install_requires=[],
+      url='https://github.com/sfneal/looptools',
+      license='MIT Licence',
+      author='Stephen Neal',
+      author_email='stephen@stephenneal.net',
+      description='Lightweight Python help utility.',
+      long_description='Helper utility functions for logging output, timing processes and counting iterations.')

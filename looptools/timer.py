@@ -1,7 +1,6 @@
 from time import time
 from decimal import Decimal
 
-
 _TIMES = []
 
 
@@ -57,7 +56,6 @@ class Timer:
     @staticmethod
     def decorator(func):
         """A function timer decorator."""
-
         def function_timer(*args, **kwargs):
             """A nested function for timing other functions."""
             # Capture start time
@@ -77,7 +75,6 @@ class Timer:
     @staticmethod
     def decorator_noprint(func):
         """A function timer decorator."""
-
         def function_timer(*args, **kwargs):
             """A nested function for timing other functions."""
             # Capture start time
@@ -99,8 +96,8 @@ class Timer:
 
     @staticmethod
     def print_times(class_name=None):
-        for index, ft in enumerate(sorted([(func, t) for func, t in Timer().times
-                                           if class_name and func.startswith(class_name)],
-                                          key=lambda e: e[1])):
+        for index, ft in enumerate(
+                sorted([(func, t) for func, t in Timer().times if class_name and func.startswith(class_name)],
+                       key=lambda e: e[1])):
             func, t = ft
             print('{0}.) {1:35} --> {2}'.format(index, func, t))

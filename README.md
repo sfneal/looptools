@@ -5,6 +5,8 @@
 [![PyPi Python support](https://img.shields.io/pypi/pyversions/looptools)](https://pypi.org/project/looptools)
 [![PyPi downloads per month](https://img.shields.io/pypi/dm/looptools)](https://pypi.org/project/looptools)
 [![PyPi license](https://img.shields.io/pypi/l/looptools)](https://pypi.org/project/looptools)
+[![StyleCI](https://github.styleci.io/repos/140315313/shield?branch=master)](https://github.styleci.io/repos/140315313?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sfneal/looptools/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sfneal/looptools/?branch=master)
 
 looptools is a Python package with helper utility classes for logging output, timing processes and counting iterations.
 

@@ -31,7 +31,7 @@ pip install --upgrade pip
 
 ### Installing
 
-Install the latest version of dirutility from PyPi or github
+Install the latest version of looptools from PyPi or github
 
 PyPi distribution
 
@@ -42,12 +42,12 @@ pip install looptools
 GitHub distribution
 
 ```
-pip install git+git://github.com/mrstephenneal/looptools.git
+pip install git+git://github.com/sfneal/looptools.git
 ```
 or
 
 ```
-pip install git+https://github.com/mrstephenneal/looptools.git
+pip install git+https://github.com/sfneal/looptools.git
 ```
 
 ## Example Usage
@@ -60,7 +60,7 @@ Outlined below are basic uses of the four main classes of the Loop Tools python 
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/mrstephenneal/psdconvert/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/sfneal/psdconvert/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
@@ -68,7 +68,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Stephen Neal** - *Initial work* - [StephenNeal](https://github.com/mrstephenneal)
+* **Stephen Neal** - *Initial work* - [StephenNeal](https://github.com/sfneal)
 
 ## License
 

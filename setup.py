@@ -26,7 +26,7 @@ setup(
     version=get_version('looptools'),
     packages=find_packages(),
     install_requires=[],
-    url='https://github.com/mrstephenneal/looptools',
+    url='https://github.com/sfneal/looptools',
     license='MIT Licence',
     author='Stephen Neal',
     author_email='stephen@stephenneal.net',
